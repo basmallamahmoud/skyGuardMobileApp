@@ -1,8 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:skyguardmobileapp/core/resources/reusable/assetsManager.dart';
-import 'package:skyguardmobileapp/core/resources/reusable/stringsManager.dart';
-import 'package:skyguardmobileapp/login/login_screen.dart';
+import 'package:skyguardmobileapp/Login_screen.dart';
+import 'package:skyguardmobileapp/core/resources/reusable/AssetsManager.dart';
+import 'package:skyguardmobileapp/core/resources/reusable/StringsManager.dart';
+import 'package:skyguardmobileapp/MapScreen/mapsScreen.dart';
 
 class SplashScreen extends StatefulWidget {
   static const String routeName = "splash";
@@ -20,7 +21,6 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
-    // Timer لتغيير النقاط كل 500ms
     _timer = Timer.periodic(const Duration(milliseconds: 500), (_) {
       setState(() {
         _dotIndex = (_dotIndex + 1) % 3;
@@ -46,7 +46,7 @@ class _SplashScreenState extends State<SplashScreen> {
         children: [
           Positioned.fill(
             child: Image.asset(
-              assetsManager.background,
+              AssetsManager.background,
               fit: BoxFit.cover,
             ),
           ),
@@ -54,7 +54,7 @@ class _SplashScreenState extends State<SplashScreen> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Image.asset(assetsManager.logo),
+                Image.asset(AssetsManager.logo),
                 const SizedBox(height: 20),
                 const Text(
                   StringsManager.skyGuard,
