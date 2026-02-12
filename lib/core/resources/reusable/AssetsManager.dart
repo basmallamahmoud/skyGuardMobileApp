@@ -15,4 +15,5 @@ abstract final class AssetsManager{
   static const String  profile ="assets/images/profile.png";
   static const String  alert ="assets/images/alert.png";
   static const String  history ="assets/images/history.png";
+  static const String  phone ="assets/images/phone.png";
 }

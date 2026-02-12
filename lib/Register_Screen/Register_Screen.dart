@@ -20,6 +20,7 @@ class _SignupScreenState extends State<SignupScreen> {
   late TextEditingController emailController;
   late TextEditingController passwordController;
   late TextEditingController confirmPasswordController;
+  late TextEditingController phoneController;
 
   @override
   void initState() {
@@ -28,6 +29,7 @@ class _SignupScreenState extends State<SignupScreen> {
     emailController = TextEditingController();
     passwordController = TextEditingController();
     confirmPasswordController = TextEditingController();
+    phoneController = TextEditingController();
   }
 
   @override
@@ -109,6 +111,16 @@ class _SignupScreenState extends State<SignupScreen> {
                   isPassword: true,
                 ),
 
+                const SizedBox(height: 12),
+
+                /// Confirm Password
+                CustomField(
+                  controller:phoneController,
+                  icon:AssetsManager.phone,
+                  title: StringsManager.phone,
+                  isPassword: true,
+                ),
+
                 const SizedBox(height: 20),
 
                 /// Sign up button
@@ -123,6 +135,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     child: Text(StringsManager.signup,style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.w600),
                   ),
                 ),),
+
 
                 const SizedBox(height: 20),
 

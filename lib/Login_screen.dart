@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:skyguardmobileapp/Home_Screen/Home_Screen.dart';
-import 'package:skyguardmobileapp/MapScreen/mapsScreen.dart';
 import 'package:skyguardmobileapp/Register_Screen/Register_Screen.dart';
-import 'package:skyguardmobileapp/core/resources/reusable/AssetsManager.dart';
-import 'package:skyguardmobileapp/core/resources/reusable/CustomField.dart';
-import 'package:skyguardmobileapp/core/resources/reusable/StringsManager.dart';
-import 'package:skyguardmobileapp/googleButton.dart';
 import 'package:skyguardmobileapp/ForgetPassword/ForgetPassword.dart';
-import 'package:skyguardmobileapp/testMapScreen.dart';
-
-
+import 'package:skyguardmobileapp/core/resources/reusable/AssetsManager.dart';
+import 'package:skyguardmobileapp/core/resources/reusable/StringsManager.dart';
+import 'package:skyguardmobileapp/core/resources/reusable/CustomField.dart';
+import 'package:skyguardmobileapp/googleButton.dart';
 
 class LoginScreen extends StatefulWidget {
   static const String routeName = "login";
+  const LoginScreen({super.key}); // ✅ const constructor
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -20,7 +17,6 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
   late TextEditingController emailController;
   late TextEditingController passwordController;
 
@@ -50,7 +46,6 @@ class _LoginScreenState extends State<LoginScreen> {
           color: const Color(0xFF007ba7),
         ),
       ),
-
       body: Padding(
         padding: const EdgeInsets.all(17),
         child: Form(
@@ -59,8 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-
-                /// Title
+                const SizedBox(height: 10),
                 Text(
                   StringsManager.loginAccount,
                   style: const TextStyle(
@@ -69,83 +63,75 @@ class _LoginScreenState extends State<LoginScreen> {
                     color: Color(0xFF007ba7),
                   ),
                 ),
-
                 const SizedBox(height: 24),
-
-                /// Email Field
-                CustomField(
-                  icon: AssetsManager.email,
-                  title: StringsManager.email,
-                ),
-
+                CustomField(icon: AssetsManager.email, title: StringsManager.email),
                 const SizedBox(height: 12),
-
-                /// Password Field
                 CustomField(
                   icon: AssetsManager.pass,
                   title: StringsManager.password,
                   isPassword: true,
                 ),
-
-                const SizedBox(height: 8),
-
-                /// Forgot Password
                 Align(
                   alignment: Alignment.centerRight,
                   child: TextButton(
                     onPressed: () {
-                      Navigator.pushReplacementNamed(context, Forgetpassword.routeName);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => const Forgetpassword()),
+                      );
                     },
-                    child: Text(StringsManager.forgetPassword,style: TextStyle(color: Color(0xFF007ba7),fontSize: 15,fontWeight: FontWeight.w500)),
+                    child: const Text(
+                      "Forgot Password?",
+                      style: TextStyle(color: Color(0xFF007ba7)),
+                    ),
                   ),
                 ),
-
                 const SizedBox(height: 16),
-
-                /// Login Button
                 SizedBox(
                   width: double.infinity,
-                  child:
-                  ElevatedButton(
-                    onPressed: (){
+                  child: ElevatedButton(
+                    onPressed: () {
                       Navigator.pushReplacementNamed(context, HomeScreen.routeName);
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF007ba7),
                       padding: const EdgeInsets.symmetric(vertical: 14),
                     ),
-                    child: Text(StringsManager.loginAccount,style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.w600),),
+                    child: const Text(
+                      "Login",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600),
+                    ),
                   ),
                 ),
-
                 const SizedBox(height: 20),
-
-                /// Sign up Row
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(StringsManager.noAccount),
+                    const Text("No account?"),
                     TextButton(
-                      style: TextButton.styleFrom(padding: EdgeInsets.zero,),
-                        onPressed: () {
-                        Navigator.pushReplacementNamed(context, SignupScreen.routeName);
-                        },
-                      child: Text(StringsManager.signup,style: TextStyle(color: Color(0xFF007ba7)),),
+                      style: TextButton.styleFrom(padding: EdgeInsets.zero),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (_) =>  SignupScreen()),
+                        );
+                      },
+                      child: const Text(
+                        "Sign Up",
+                        style: TextStyle(color: Color(0xFF007ba7)),
+                      ),
                     ),
                   ],
                 ),
-                GoogleButton(title: StringsManager.loginAccount)
+                GoogleButton(title: StringsManager.loginAccount),
               ],
             ),
           ),
         ),
       ),
     );
-  }
-
-  void login() {
-    if (formKey.currentState?.validate() ?? false) {
-      // login logic
-    }
   }
 }

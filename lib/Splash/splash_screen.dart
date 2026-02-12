@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:skyguardmobileapp/Login_screen.dart';
 import 'package:skyguardmobileapp/core/resources/reusable/AssetsManager.dart';
 import 'package:skyguardmobileapp/core/resources/reusable/StringsManager.dart';
-import 'package:skyguardmobileapp/MapScreen/mapsScreen.dart';
 
 class SplashScreen extends StatefulWidget {
   static const String routeName = "splash";
@@ -59,9 +58,10 @@ class _SplashScreenState extends State<SplashScreen> {
                 const Text(
                   StringsManager.skyGuard,
                   style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold),
+                    color: Colors.white,
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 const SizedBox(height: 20),
                 Row(

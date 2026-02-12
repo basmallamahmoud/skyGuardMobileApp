@@ -7,6 +7,7 @@ abstract final class StringsManager {
   static const enterMail ="Enter your Email";
   static const enterPass ="Enter your Password";
   static const confirmPass ="Confirm your Password";
+  static const phone ="Enter Your Phone number";
   static const haveAccount ="Already have an account?";
   static const email ="Email";
   static const login ="Login";
@@ -16,6 +17,7 @@ abstract final class StringsManager {
   static const googleLogin ="Login with Google";
   static const googleSignUp ="Sign up with Google";
   static const password ="Password";
+
   static const alert ="Alert";
   static const history ="History";
   static const profile ="Profile";

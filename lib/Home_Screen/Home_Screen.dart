@@ -20,15 +20,16 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final List<Widget> tabs = const [
     HomeTab(),
-    AlertTab(),
-    HistoryTab(),
-    ProfileTab(),
+    AlertsTab(),
+      HistoryTab(),
+    ProfileScreen(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
+
       appBar: const WaveAppBar(),
 
       floatingActionButton: FloatingActionButton(
